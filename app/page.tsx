@@ -172,15 +172,12 @@ export default function LandingPage() {
               <div className="max-w-xl">
                 <h2 className="text-3xl font-bold tracking-tight text-primary-foreground mb-4">Ready to hit the road?</h2>
                 <p className="text-primary-foreground/90 text-lg">
-                  Download our app for exclusive deals and faster booking. Join thousands of satisfied customers today.
+                  Join thousands of satisfied customers today.
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button size="lg" variant="secondary" className="h-14 px-8 text-lg">
                   Book Online
-                </Button>
-                <Button size="lg" variant="outline" className="h-14 px-8 text-lg bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
-                  Download App
                 </Button>
               </div>
             </div>
