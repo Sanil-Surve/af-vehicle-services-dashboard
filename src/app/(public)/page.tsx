@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Badge } from "@/components/ui/badge"
+import Link from "next/link"
 
 export default function LandingPage() {
   return (
@@ -95,9 +96,11 @@ export default function LandingPage() {
               <h2 className="text-3xl font-bold tracking-tight mb-2">Our Premium Fleet</h2>
               <p className="text-muted-foreground">Select from our top-rated vehicles for every occasion</p>
             </div>
-            <Button variant="link" className="hidden md:flex">
-              View All Vehicles <ChevronRight className="ml-1 h-4 w-4" />
-            </Button>
+            <Link href="/fleet">
+              <Button variant="link" className="hidden md:flex" >
+                View All Vehicles <ChevronRight className="ml-1 h-4 w-4" />
+              </Button>
+            </Link>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

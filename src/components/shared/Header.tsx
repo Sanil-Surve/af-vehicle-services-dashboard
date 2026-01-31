@@ -5,12 +5,14 @@ import { Car, Menu, Phone } from "lucide-react"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Avatar, AvatarImage } from "@/components/ui/avatar"
+import { useUser } from "@/hooks/useUser"
 
 // Wait, I haven't created Sheet. I'll use a simple state-based mobile menu for now to avoid dependency hell, or simpler: just use a responsive hidden menu.
 // Actually, I can use a simple conditional render for mobile menu.
 
-export function Navbar() {
+export function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
+    const { user, loading, signOut } = useUser()
 
     return (
         <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -47,14 +49,31 @@ export function Navbar() {
                         <Phone className="h-4 w-4" />
                         <span>+91 9326743938</span>
                     </div>
-                    <Link href="/login">
-                        <Button variant="ghost" size="sm">
-                            Sign In
-                        </Button>
-                    </Link>
-                    <Link href="/register">
-                        <Button size="sm">Get Started</Button>
-                    </Link>
+                    {loading ? (
+                        <div className="h-9 w-20 bg-gray-100 animate-pulse rounded-md" />
+                    ) : user ? (
+                        <div className="flex items-center gap-4">
+                            <div className="flex flex-col items-end">
+                                <span className="text-sm font-medium">
+                                    {user.user_metadata?.full_name || user.email}
+                                </span>
+                            </div>
+                            <Button variant="outline" size="sm" onClick={signOut}>
+                                Sign Out
+                            </Button>
+                        </div>
+                    ) : (
+                        <>
+                            <Link href="/login">
+                                <Button variant="ghost" size="sm">
+                                    Sign In
+                                </Button>
+                            </Link>
+                            <Link href="/signup">
+                                <Button size="sm">Get Started</Button>
+                            </Link>
+                        </>
+                    )}
                 </div>
 
                 {/* Mobile Menu Button - simplified */}
@@ -83,16 +102,31 @@ export function Navbar() {
                             About Us
                         </Link>
                         <div className="flex flex-col gap-2 pt-4 border-t">
-                            <Link href="/login" onClick={() => setIsMenuOpen(false)}>
-                                <Button variant="outline" className="w-full justify-start">
-                                    Sign In
-                                </Button>
-                            </Link>
-                            <Link href="/register" onClick={() => setIsMenuOpen(false)}>
-                                <Button className="w-full justify-start">
-                                    Get Started
-                                </Button>
-                            </Link>
+                            {loading ? (
+                                <div className="h-9 w-20 bg-gray-100 animate-pulse rounded-md" />
+                            ) : user ? (
+                                <div className="flex items-center gap-4">
+                                    <div className="flex flex-col items-end">
+                                        <span className="text-sm font-medium">
+                                            {user.user_metadata?.full_name || user.email}
+                                        </span>
+                                    </div>
+                                    <Button variant="outline" size="sm" onClick={signOut}>
+                                        Sign Out
+                                    </Button>
+                                </div>
+                            ) : (
+                                <>
+                                    <Link href="/login">
+                                        <Button variant="ghost" size="sm">
+                                            Sign In
+                                        </Button>
+                                    </Link>
+                                    <Link href="/signup">
+                                        <Button size="sm">Get Started</Button>
+                                    </Link>
+                                </>
+                            )}
                         </div>
                     </div>
                 </div>
