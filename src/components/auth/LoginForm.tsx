@@ -4,6 +4,8 @@ import { useState } from 'react'
 import { createClient } from '@/lib/supabase/client'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
+import { Input } from '@/components/ui/input'
+import { Button } from '@/components/ui/button'
 
 export default function LoginForm() {
     const [email, setEmail] = useState('')
@@ -33,45 +35,43 @@ export default function LoginForm() {
 
     return (
         <form onSubmit={handleLogin} className="space-y-4">
-            <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+            <div className="space-y-2">
+                <label htmlFor="email" className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
                     Email Address
                 </label>
-                <input
+                <Input
                     type="email"
                     id="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="admin@example.com"
-                    className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                     required
                 />
             </div>
-            <div>
-                <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+            <div className="space-y-2">
+                <label htmlFor="password" className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
                     Password
                 </label>
-                <input
+                <Input
                     type="password"
                     id="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder="••••••••"
-                    className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                     required
                 />
             </div>
-            {error && <p className="text-red-500 text-sm">{error}</p>}
-            <button
+            {error && <p className="text-destructive text-sm font-medium">{error}</p>}
+            <Button
                 type="submit"
+                className="w-full"
                 disabled={loading}
-                className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50"
             >
                 {loading ? 'Signing in...' : 'Sign In'}
-            </button>
-            <div className="text-sm text-center">
-                <span className="text-gray-500">Don't have an account? </span>
-                <Link href="/signup" className="font-medium text-blue-600 hover:text-blue-500">
+            </Button>
+            <div className="text-sm text-center text-muted-foreground">
+                Don't have an account?{' '}
+                <Link href="/signup" className="font-medium text-primary hover:underline">
                     Sign up
                 </Link>
             </div>
