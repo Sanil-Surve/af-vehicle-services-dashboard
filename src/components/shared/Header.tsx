@@ -57,6 +57,9 @@ export function Header() {
                                 <span className="text-sm font-medium">
                                     {user.user_metadata?.full_name || user.email}
                                 </span>
+                                <Link href="/dashboard/bookings" className="text-xs text-muted-foreground hover:text-primary">
+                                    My Bookings
+                                </Link>
                             </div>
                             <Button variant="outline" size="sm" onClick={signOut}>
                                 Sign Out
@@ -110,6 +113,9 @@ export function Header() {
                                         <span className="text-sm font-medium">
                                             {user.user_metadata?.full_name || user.email}
                                         </span>
+                                        <Link href="/dashboard/bookings" className="text-xs text-muted-foreground hover:text-primary">
+                                            My Bookings
+                                        </Link>
                                     </div>
                                     <Button variant="outline" size="sm" onClick={signOut}>
                                         Sign Out

@@ -9,6 +9,7 @@ create table vehicles (
   description text,
   image_url text, -- Cloudinary URL
   features text[],
+  slug text unique not null,
   is_available boolean default true,
   created_at timestamp with time zone default timezone('utc'::text, now()) not null
 );

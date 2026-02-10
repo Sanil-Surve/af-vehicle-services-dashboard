@@ -12,6 +12,11 @@ export interface Booking {
   status: BookingStatus;
   created_at: string;
   vehicle?: Vehicle; // Joined data
+  profiles?: { // Joined data
+    full_name: string;
+    phone: string;
+    avatar_url: string;
+  };
 }
 
 export interface CreateBookingDTO {
@@ -19,4 +24,18 @@ export interface CreateBookingDTO {
   start_date: Date;
   end_date: Date;
   total_price: number;
+}
+
+export interface UpdateBookingDTO {
+  start_date?: Date;
+  end_date?: Date;
+  total_price?: number;
+  status?: BookingStatus;
+}
+
+export interface BookingFilter {
+  status?: BookingStatus;
+  start_date?: string;
+  end_date?: string;
+  user_id?: string;
 }
