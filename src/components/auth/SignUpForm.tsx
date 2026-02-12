@@ -31,7 +31,7 @@ export default function SignUpForm() {
             email,
             password,
             options: {
-                emailRedirectTo: `https://af-rentals.vercel.app/auth/callback`,
+                emailRedirectTo: `${location.origin}/auth/callback`,
                 data: {
                     full_name: fullName,
                 },
