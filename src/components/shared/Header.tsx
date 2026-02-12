@@ -33,9 +33,6 @@ export function Header() {
                     <Link href="/" className="transition-colors hover:text-primary">
                         Home
                     </Link>
-                    <Link href="/services" className="transition-colors hover:text-primary">
-                        Services
-                    </Link>
                     <Link href="/fleet" className="transition-colors hover:text-primary">
                         Fleet
                     </Link>
@@ -94,9 +91,6 @@ export function Header() {
                     <div className="flex flex-col gap-4">
                         <Link href="/" className="text-sm font-medium transition-colors hover:text-primary" onClick={() => setIsMenuOpen(false)}>
                             Home
-                        </Link>
-                        <Link href="/services" className="text-sm font-medium transition-colors hover:text-primary" onClick={() => setIsMenuOpen(false)}>
-                            Services
                         </Link>
                         <Link href="/fleet" className="text-sm font-medium transition-colors hover:text-primary" onClick={() => setIsMenuOpen(false)}>
                             Fleet
