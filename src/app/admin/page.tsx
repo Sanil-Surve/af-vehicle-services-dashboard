@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { bookingService } from '@/services/booking.service';
 import { vehicleService } from '@/services/vehicle.service';
 import { createClient } from '@/lib/supabase/client';
-import { ArrowUpRight, ArrowDownRight, Users, Calendar, Car, DollarSign } from 'lucide-react';
+import { Users, Calendar, Car, DollarSign } from 'lucide-react';
 
 export default function AdminDashboardPage() {
     const [stats, setStats] = useState({
@@ -43,29 +43,21 @@ export default function AdminDashboardPage() {
             name: 'Total Revenue',
             value: `₹${stats.totalRevenue.toLocaleString()}`,
             icon: DollarSign,
-            change: '+4.75%',
-            changeType: 'positive',
         },
         {
             name: 'Total Bookings',
             value: stats.totalBookings,
             icon: Calendar,
-            change: '+54.02%',
-            changeType: 'positive',
         },
         {
             name: 'Active Vehicles',
             value: stats.activeVehicles,
             icon: Car,
-            change: '-1.39%',
-            changeType: 'negative',
         },
         {
             name: 'Total Users',
             value: stats.totalUsers,
             icon: Users,
-            change: '+10.18%',
-            changeType: 'positive',
         },
     ];
 
@@ -85,15 +77,6 @@ export default function AdminDashboardPage() {
                         </div>
                         <div className="flex items-center pt-4">
                             <div className="text-2xl font-bold">{card.value}</div>
-                            <div className={`ml-auto flex items-baseline text-sm font-semibold ${card.changeType === 'positive' ? 'text-green-600' : 'text-red-600'
-                                }`}>
-                                {card.changeType === 'positive' ? (
-                                    <ArrowUpRight className="h-4 w-4 mr-1 self-center" />
-                                ) : (
-                                    <ArrowDownRight className="h-4 w-4 mr-1 self-center" />
-                                )}
-                                {card.change}
-                            </div>
                         </div>
                     </div>
                 ))}

@@ -74,7 +74,7 @@ export default function AdminBookingsPage() {
                                 <td className="px-6 py-4">
                                     <div className="flex flex-col">
                                         <span className="font-medium">{booking.profiles?.full_name || 'Unknown'}</span>
-                                        <span className="text-xs text-gray-500">{booking.user_id.slice(0, 8)}...</span>
+                                        {/* <span className="text-xs text-gray-500">{booking.user_id.slice(0, 8)}...</span> */}
                                     </div>
                                 </td>
                                 <td className="px-6 py-4">

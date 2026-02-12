@@ -47,7 +47,6 @@ export default function AdminUsersPage() {
                             <th className="px-6 py-3">User</th>
                             <th className="px-6 py-3">Role</th>
                             <th className="px-6 py-3">Joined</th>
-                            <th className="px-6 py-3">ID</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -68,9 +67,6 @@ export default function AdminUsersPage() {
                                 </td>
                                 <td className="px-6 py-4">
                                     {format(new Date(user.created_at), 'MMM dd, yyyy')}
-                                </td>
-                                <td className="px-6 py-4 text-xs text-gray-500 font-mono">
-                                    {user.id}
                                 </td>
                             </tr>
                         ))}
