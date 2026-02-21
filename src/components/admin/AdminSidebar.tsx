@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
-import { LayoutDashboard, Users, Calendar, Car, LogOut } from 'lucide-react';
+import { LayoutDashboard, Users, Calendar, Car, LogOut, MessageSquare } from 'lucide-react';
 import { createClient } from '@/lib/supabase/client';
 import { useRouter } from 'next/navigation';
 
@@ -12,6 +12,7 @@ const navigation = [
     { name: 'Bookings', href: '/admin/bookings', icon: Calendar },
     { name: 'Vehicles', href: '/admin/vehicles', icon: Car },
     { name: 'Users', href: '/admin/users', icon: Users },
+    { name: 'Feedback', href: '/admin/feedback', icon: MessageSquare },
 ];
 
 export function AdminSidebar() {

@@ -5,9 +5,10 @@ import Image from "next/image"
 import { Star, ChevronLeft, ChevronRight } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
+import { feedbackService } from "@/services/feedback.service"
 
 interface Testimonial {
-    id: number
+    id: string
     name: string
     image: string
     rating: number
@@ -15,60 +16,32 @@ interface Testimonial {
     location?: string
 }
 
-const testimonials: Testimonial[] = [
-    {
-        id: 1,
-        name: "Rajesh Kumar",
-        image: "/avatars/man.webp",
-        rating: 5,
-        review: "Excellent service! The car was in perfect condition and the booking process was seamless. Highly recommend AF Rentals for anyone looking for reliable vehicle rentals.",
-        location: "Mumbai"
-    },
-    {
-        id: 2,
-        name: "Priya Sharma",
-        image: "/avatars/woman.jpg",
-        rating: 5,
-        review: "Very professional and courteous staff. The bike I rented was well-maintained and fuel-efficient. Will definitely use their services again!",
-        location: "Delhi"
-    },
-    {
-        id: 3,
-        name: "Amit Patel",
-        image: "/avatars/man.webp",
-        rating: 4,
-        review: "Great experience overall. The vehicle was clean and the rates were very competitive. Minor delay in pickup but otherwise fantastic service.",
-        location: "Bangalore"
-    },
-    {
-        id: 4,
-        name: "Sneha Reddy",
-        image: "/avatars/woman.jpg",
-        rating: 5,
-        review: "Best rental service in the city! Booked a scooter for a week and it was absolutely worth it. Easy booking, transparent pricing, and excellent customer support.",
-        location: "Hyderabad"
-    },
-    {
-        id: 5,
-        name: "Vikram Singh",
-        image: "/avatars/man.webp",
-        rating: 5,
-        review: "I've been using AF Rentals for the past year and they never disappoint. Always have a wide variety of vehicles to choose from. Truly the best!",
-        location: "Pune"
-    },
-    {
-        id: 6,
-        name: "Anjali Mehta",
-        image: "/avatars/woman.jpg",
-        rating: 4,
-        review: "Smooth and hassle-free rental experience. The app is user-friendly and the vehicles are always in top condition. Highly satisfied customer here!",
-        location: "Chennai"
-    }
-]
-
 export default function TestimonialsCarousel() {
+    const [testimonials, setTestimonials] = React.useState<Testimonial[]>([])
     const [currentIndex, setCurrentIndex] = React.useState(0)
     const [cardsToShow, setCardsToShow] = React.useState(3)
+
+    // Fetch dynamic feedback from Supabase
+    React.useEffect(() => {
+        const fetchFeedback = async () => {
+            try {
+                const feedback = await feedbackService.getApprovedFeedback()
+                const mapped: Testimonial[] = feedback.map((fb) => ({
+                    id: fb.id,
+                    name: fb.name,
+                    image: `https://ui-avatars.com/api/?name=${encodeURIComponent(fb.name)}&background=random&color=fff&bold=true`,
+                    rating: fb.rating,
+                    review: fb.review,
+                    location: fb.location,
+                }))
+                setTestimonials(mapped)
+            } catch (error) {
+                console.error('Failed to fetch feedback:', error)
+            }
+        }
+
+        fetchFeedback()
+    }, [])
 
     // Responsive cards per view
     React.useEffect(() => {
@@ -91,10 +64,10 @@ export default function TestimonialsCarousel() {
     React.useEffect(() => {
         const interval = setInterval(() => {
             handleNext()
-        }, 5000) // Change slide every 5 seconds
+        }, 5000)
 
         return () => clearInterval(interval)
-    }, [currentIndex, cardsToShow])
+    }, [currentIndex, cardsToShow, testimonials])
 
     const maxIndex = Math.max(0, testimonials.length - cardsToShow)
 
@@ -222,7 +195,6 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
                             fill
                             className="object-cover"
                             onError={(e) => {
-                                // Fallback to placeholder if image fails to load
                                 const target = e.target as HTMLImageElement
                                 target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(testimonial.name)}&background=random`
                             }}

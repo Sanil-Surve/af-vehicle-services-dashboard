@@ -39,6 +39,9 @@ export function Header() {
                     <Link href="/about" className="transition-colors hover:text-primary">
                         About Us
                     </Link>
+                    <Link href="/contact" className="transition-colors hover:text-primary">
+                        Contact Us
+                    </Link>
                 </nav>
 
                 <div className="hidden md:flex items-center gap-4">
@@ -97,6 +100,9 @@ export function Header() {
                         </Link>
                         <Link href="/about" className="text-sm font-medium transition-colors hover:text-primary" onClick={() => setIsMenuOpen(false)}>
                             About Us
+                        </Link>
+                        <Link href="/contact" className="text-sm font-medium transition-colors hover:text-primary" onClick={() => setIsMenuOpen(false)}>
+                            Contact Us
                         </Link>
                         <div className="flex flex-col gap-2 pt-4 border-t">
                             {loading ? (
