@@ -10,6 +10,11 @@ export interface Booking {
   end_date: string;
   total_price: number;
   status: BookingStatus;
+  location: string;
+  contact_no: string;
+  purpose?: string;
+  main_place_of_visit?: string;
+  expected_kms?: number;
   created_at: string;
   vehicle?: Vehicle; // Joined data
   profiles?: { // Joined data
@@ -24,6 +29,11 @@ export interface CreateBookingDTO {
   start_date: Date;
   end_date: Date;
   total_price: number;
+  location: string;
+  contact_no: string;
+  purpose?: string;
+  main_place_of_visit?: string;
+  expected_kms?: number;
 }
 
 export interface UpdateBookingDTO {
@@ -31,6 +41,11 @@ export interface UpdateBookingDTO {
   end_date?: Date;
   total_price?: number;
   status?: BookingStatus;
+  location?: string;
+  contact_no?: string;
+  purpose?: string;
+  main_place_of_visit?: string;
+  expected_kms?: number;
 }
 
 export interface BookingFilter {

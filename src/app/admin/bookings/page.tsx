@@ -59,7 +59,9 @@ export default function AdminBookingsPage() {
                             <th className="px-6 py-3">Booking ID</th>
                             <th className="px-6 py-3">User</th>
                             <th className="px-6 py-3">Vehicle</th>
+                            <th className="px-6 py-3">Location</th>
                             <th className="px-6 py-3">Dates</th>
+                            <th className="px-6 py-3">Contact</th>
                             <th className="px-6 py-3">Total</th>
                             <th className="px-6 py-3">Status</th>
                             <th className="px-6 py-3">Actions</th>
@@ -74,7 +76,6 @@ export default function AdminBookingsPage() {
                                 <td className="px-6 py-4">
                                     <div className="flex flex-col">
                                         <span className="font-medium">{booking.profiles?.full_name || 'Unknown'}</span>
-                                        {/* <span className="text-xs text-gray-500">{booking.user_id.slice(0, 8)}...</span> */}
                                     </div>
                                 </td>
                                 <td className="px-6 py-4">
@@ -82,10 +83,27 @@ export default function AdminBookingsPage() {
                                 </td>
                                 <td className="px-6 py-4">
                                     <div className="flex flex-col text-xs">
-                                        <span>{format(new Date(booking.start_date), 'MMM dd, yyyy')}</span>
-                                        <span className="text-muted-foreground">to</span>
-                                        <span>{format(new Date(booking.end_date), 'MMM dd, yyyy')}</span>
+                                        <span className="font-medium">{booking.location || '—'}</span>
+                                        {booking.main_place_of_visit && (
+                                            <span className="text-muted-foreground">→ {booking.main_place_of_visit}</span>
+                                        )}
+                                        {booking.purpose && (
+                                            <span className="text-muted-foreground italic mt-0.5">{booking.purpose}</span>
+                                        )}
                                     </div>
+                                </td>
+                                <td className="px-6 py-4">
+                                    <div className="flex flex-col text-xs">
+                                        <span>{format(new Date(booking.start_date), 'MMM dd, yyyy hh:mm a')}</span>
+                                        <span className="text-muted-foreground">to</span>
+                                        <span>{format(new Date(booking.end_date), 'MMM dd, yyyy hh:mm a')}</span>
+                                        {booking.expected_kms && (
+                                            <span className="text-muted-foreground mt-0.5">~{booking.expected_kms} km</span>
+                                        )}
+                                    </div>
+                                </td>
+                                <td className="px-6 py-4 whitespace-nowrap">
+                                    {booking.contact_no || '—'}
                                 </td>
                                 <td className="px-6 py-4">
                                     ₹{booking.total_price}

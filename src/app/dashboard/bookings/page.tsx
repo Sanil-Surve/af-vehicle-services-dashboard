@@ -103,18 +103,48 @@ export default function BookingsPage() {
                                     </h3>
                                 )}
                                 <div className="space-y-2 text-sm text-muted-foreground mt-3">
+                                    {booking.location && (
+                                        <div className="flex justify-between">
+                                            <span>Location:</span>
+                                            <span className="font-medium text-foreground">{booking.location}</span>
+                                        </div>
+                                    )}
                                     <div className="flex justify-between">
-                                        <span>Start Date:</span>
+                                        <span>Date of Hire:</span>
                                         <span className="font-medium text-foreground">
-                                            {format(new Date(booking.start_date), 'PPP')}
+                                            {format(new Date(booking.start_date), 'PPP p')}
                                         </span>
                                     </div>
                                     <div className="flex justify-between">
-                                        <span>End Date:</span>
+                                        <span>Date of Submission:</span>
                                         <span className="font-medium text-foreground">
-                                            {format(new Date(booking.end_date), 'PPP')}
+                                            {format(new Date(booking.end_date), 'PPP p')}
                                         </span>
                                     </div>
+                                    {booking.contact_no && (
+                                        <div className="flex justify-between">
+                                            <span>Contact:</span>
+                                            <span className="font-medium text-foreground">{booking.contact_no}</span>
+                                        </div>
+                                    )}
+                                    {booking.purpose && (
+                                        <div className="flex justify-between">
+                                            <span>Purpose:</span>
+                                            <span className="font-medium text-foreground">{booking.purpose}</span>
+                                        </div>
+                                    )}
+                                    {booking.main_place_of_visit && (
+                                        <div className="flex justify-between">
+                                            <span>Place of Visit:</span>
+                                            <span className="font-medium text-foreground">{booking.main_place_of_visit}</span>
+                                        </div>
+                                    )}
+                                    {booking.expected_kms && (
+                                        <div className="flex justify-between">
+                                            <span>Expected Kms:</span>
+                                            <span className="font-medium text-foreground">{booking.expected_kms} km</span>
+                                        </div>
+                                    )}
                                     <div className="pt-2 mt-2 border-t flex justify-between items-center">
                                         <span>Total Price:</span>
                                         <span className="text-lg font-bold text-primary">

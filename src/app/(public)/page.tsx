@@ -267,7 +267,7 @@ export default function LandingPage() {
       {/* Authentication Alert */}
       {showAuthAlert && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4" onClick={() => setShowAuthAlert(false)}>
-          <div className="w-full max-w-md rounded-xl bg-white p-6 shadow-xl" onClick={(e) => e.stopPropagation()}>
+          <div className="w-full max-w-md rounded-xl bg-card text-card-foreground p-6 shadow-xl border border-border" onClick={(e) => e.stopPropagation()}>
             <div className="text-center">
               <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
                 <svg className="h-6 w-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -303,7 +303,7 @@ function FleetCard({ vehicle, onBookNow }: { vehicle: Vehicle, onBookNow: () => 
   return (
     <Card className="overflow-hidden border-none shadow-lg group">
       <div className="relative h-48 overflow-hidden">
-        <div className="absolute top-3 right-3 z-10 bg-white/90 backdrop-blur-sm px-2 py-1 rounded-md flex items-center gap-1 text-xs font-bold shadow-sm">
+        <div className="absolute top-3 right-3 z-10 bg-white/90 backdrop-blur-sm px-2 py-1 rounded-md flex items-center gap-1 text-xs text-gray-500 font-bold shadow-sm">
           <Star className="h-3 w-3 fill-yellow-400 text-yellow-400" />
           4.8
         </div>

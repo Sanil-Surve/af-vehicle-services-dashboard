@@ -8,15 +8,25 @@ export const bookingService = {
     
     if (!user) throw new Error('User not authenticated');
 
+    const insertData: Record<string, unknown> = {
+      vehicle_id: bookingData.vehicle_id,
+      start_date: bookingData.start_date.toISOString(),
+      end_date: bookingData.end_date.toISOString(),
+      total_price: bookingData.total_price,
+      location: bookingData.location,
+      contact_no: bookingData.contact_no,
+      user_id: user.id,
+      status: 'pending'
+    };
+
+    // Include optional fields only if provided
+    if (bookingData.purpose) insertData.purpose = bookingData.purpose;
+    if (bookingData.main_place_of_visit) insertData.main_place_of_visit = bookingData.main_place_of_visit;
+    if (bookingData.expected_kms !== undefined) insertData.expected_kms = bookingData.expected_kms;
+
     const { data, error } = await supabase
       .from('bookings')
-      .insert({
-        ...bookingData,
-        start_date: bookingData.start_date.toISOString(),
-        end_date: bookingData.end_date.toISOString(),
-        user_id: user.id,
-        status: 'pending'
-      })
+      .insert(insertData)
       .select()
       .single();
 
