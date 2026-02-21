@@ -42,11 +42,15 @@ export function Header() {
                     <Link href="/contact" className="transition-colors hover:text-primary">
                         Contact Us
                     </Link>
+                    <Link href="/dashboard/profile" className="transition-colors hover:text-primary">
+                        Profile
+                    </Link>
                 </nav>
 
                 <div className="hidden md:flex items-center gap-4">
                     <div className="flex items-center gap-2 text-sm text-muted-foreground mr-2">
                         <Phone className="h-4 w-4" />
+
                         <span>+91 9326743938</span>
                     </div>
                     {loading ? (
@@ -103,6 +107,9 @@ export function Header() {
                         </Link>
                         <Link href="/contact" className="text-sm font-medium transition-colors hover:text-primary" onClick={() => setIsMenuOpen(false)}>
                             Contact Us
+                        </Link>
+                        <Link href="/dashboard/profile" className="text-sm font-medium transition-colors hover:text-primary" onClick={() => setIsMenuOpen(false)}>
+                            Profile
                         </Link>
                         <div className="flex flex-col gap-2 pt-4 border-t">
                             {loading ? (
