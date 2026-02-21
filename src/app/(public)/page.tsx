@@ -175,7 +175,7 @@ export default function LandingPage() {
               </div>
 
               {/* Duplicate set for seamless loop */}
-              <div className="flex gap-8 pr-8">
+              {/* <div className="flex gap-8 pr-8">
                 {vehicles.map((vehicle) => (
                   <div key={`second-${vehicle.id}`} className="w-[350px] flex-shrink-0">
                     <FleetCard
@@ -184,7 +184,7 @@ export default function LandingPage() {
                     />
                   </div>
                 ))}
-              </div>
+              </div> */}
             </div>
           ) : (
             <div className="flex justify-center py-12">
@@ -319,7 +319,7 @@ function FleetCard({ vehicle, onBookNow }: { vehicle: Vehicle, onBookNow: () => 
           {vehicle.type}
         </Badge>
         <div className="flex justify-between items-start mb-4">
-          <h3 className="text-xl font-bold">{vehicle.make} {vehicle.model}</h3>
+          <h3 className="text-lg font-bold">{vehicle.make} {vehicle.model}</h3>
           <div className="text-right">
             <span className="text-lg font-bold text-primary">₹{vehicle.price_per_day}</span>
             <span className="text-xs text-muted-foreground">/day</span>
