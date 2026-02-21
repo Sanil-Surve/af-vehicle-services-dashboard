@@ -17,12 +17,16 @@ export async function POST(request: NextRequest) {
     const bytes = await file.arrayBuffer();
     const buffer = Buffer.from(bytes);
 
+    // Use 'raw' for PDFs/documents so Cloudinary serves them correctly
+    const isDocument = file.type === 'application/pdf' || file.name?.endsWith('.pdf');
+    const resourceType = isDocument ? 'raw' : 'auto';
+
     // Upload to Cloudinary using a stream
     const result = await new Promise<UploadApiResponse>((resolve, reject) => {
       const uploadStream = cloudinary.uploader.upload_stream(
         {
-          folder: 'vehicle-services', // Optional folder organization
-          resource_type: 'auto',
+          folder: 'vehicle-services',
+          resource_type: resourceType,
         },
         (error, result) => {
           if (error) reject(error);
