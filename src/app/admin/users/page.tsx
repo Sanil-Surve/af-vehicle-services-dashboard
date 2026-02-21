@@ -40,9 +40,9 @@ export default function AdminUsersPage() {
                 <h1 className="text-3xl font-bold tracking-tight">Users</h1>
             </div>
 
-            <div className="border rounded-lg bg-white overflow-hidden shadow-sm">
+            <div className="border border-border rounded-lg bg-card overflow-hidden shadow-sm">
                 <table className="w-full text-sm text-left">
-                    <thead className="text-xs text-gray-700 uppercase bg-gray-50 border-b">
+                    <thead className="text-xs text-muted-foreground uppercase bg-muted border-b border-border">
                         <tr>
                             <th className="px-6 py-3">User</th>
                             <th className="px-6 py-3">Role</th>
@@ -51,16 +51,16 @@ export default function AdminUsersPage() {
                     </thead>
                     <tbody>
                         {users.map((user) => (
-                            <tr key={user.id} className="bg-white border-b hover:bg-gray-50">
+                            <tr key={user.id} className="border-b border-border hover:bg-muted/50">
                                 <td className="px-6 py-4 flex items-center gap-3">
                                     <Avatar>
                                         <AvatarImage src={user.avatar_url} />
                                         <AvatarFallback>{user.full_name?.[0] || 'U'}</AvatarFallback>
                                     </Avatar>
-                                    <span className="font-medium text-gray-900">{user.full_name || 'No Name'}</span>
+                                    <span className="font-medium text-foreground">{user.full_name || 'No Name'}</span>
                                 </td>
                                 <td className="px-6 py-4">
-                                    <span className={`px-2 py-1 rounded-full text-xs capitalize ${user.role === 'admin' ? 'bg-purple-100 text-purple-800' : 'bg-gray-100 text-gray-800'
+                                    <span className={`px-2 py-1 rounded-full text-xs capitalize ${user.role === 'admin' ? 'bg-purple-500/20 text-purple-400' : 'bg-muted text-muted-foreground'
                                         }`}>
                                         {user.role}
                                     </span>

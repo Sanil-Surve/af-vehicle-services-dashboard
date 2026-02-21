@@ -69,11 +69,11 @@ export default function AdminDashboardPage() {
                 {cards.map((card) => (
                     <div
                         key={card.name}
-                        className="rounded-xl border bg-white p-6 shadow-sm"
+                        className="rounded-xl border border-border bg-card p-6 shadow-sm"
                     >
                         <div className="flex items-center justify-between space-y-0 pb-2">
-                            <p className="text-sm font-medium text-gray-500">{card.name}</p>
-                            <card.icon className="h-4 w-4 text-gray-400" />
+                            <p className="text-sm font-medium text-muted-foreground">{card.name}</p>
+                            <card.icon className="h-4 w-4 text-muted-foreground" />
                         </div>
                         <div className="flex items-center pt-4">
                             <div className="text-2xl font-bold">{card.value}</div>

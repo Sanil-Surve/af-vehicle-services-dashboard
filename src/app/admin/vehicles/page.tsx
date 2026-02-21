@@ -84,8 +84,8 @@ export default function AdminVehiclesPage() {
 
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                 {vehicles.map((vehicle) => (
-                    <div key={vehicle.id} className="group relative bg-white border rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-                        <div className="aspect-video relative bg-gray-100">
+                    <div key={vehicle.id} className="group relative bg-card border border-border rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                        <div className="aspect-video relative bg-muted">
                             <Image
                                 src={vehicle.image_url}
                                 alt={vehicle.model}
@@ -94,11 +94,11 @@ export default function AdminVehiclesPage() {
                             />
                             <div className="absolute top-2 right-2 flex gap-1">
                                 {vehicle.is_available ? (
-                                    <span className="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full flex items-center">
+                                    <span className="bg-green-500/20 text-green-400 text-xs px-2 py-1 rounded-full flex items-center">
                                         <CheckCircle className="w-3 h-3 mr-1" /> Available
                                     </span>
                                 ) : (
-                                    <span className="bg-red-100 text-red-800 text-xs px-2 py-1 rounded-full flex items-center">
+                                    <span className="bg-red-500/20 text-red-400 text-xs px-2 py-1 rounded-full flex items-center">
                                         <XCircle className="w-3 h-3 mr-1" /> Unavailable
                                     </span>
                                 )}
@@ -108,11 +108,11 @@ export default function AdminVehiclesPage() {
                         <div className="p-4">
                             <div className="mb-2">
                                 <h3 className="font-semibold text-lg">{vehicle.make} {vehicle.model}</h3>
-                                <p className="text-sm text-gray-500">{vehicle.type} • {vehicle.year}</p>
+                                <p className="text-sm text-muted-foreground">{vehicle.type} • {vehicle.year}</p>
                             </div>
 
-                            <div className="flex items-center justify-between mt-4 border-t pt-4">
-                                <span className="font-bold text-lg">₹{vehicle.price_per_day}<span className="text-sm font-normal text-gray-500">/day</span></span>
+                            <div className="flex items-center justify-between mt-4 border-t border-border pt-4">
+                                <span className="font-bold text-lg">₹{vehicle.price_per_day}<span className="text-sm font-normal text-muted-foreground">/day</span></span>
 
                                 <div className="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
                                     <Button size="icon" variant="ghost" onClick={() => handleEdit(vehicle)}>

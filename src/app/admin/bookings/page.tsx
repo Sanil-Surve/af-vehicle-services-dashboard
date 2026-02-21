@@ -52,9 +52,9 @@ export default function AdminBookingsPage() {
                 <h1 className="text-3xl font-bold tracking-tight">Bookings</h1>
             </div>
 
-            <div className="border rounded-lg bg-white overflow-hidden shadow-sm">
+            <div className="border border-border rounded-lg bg-card overflow-hidden shadow-sm">
                 <table className="w-full text-sm text-left">
-                    <thead className="text-xs text-gray-700 uppercase bg-gray-50 border-b">
+                    <thead className="text-xs text-muted-foreground uppercase bg-muted border-b border-border">
                         <tr>
                             <th className="px-6 py-3">Booking ID</th>
                             <th className="px-6 py-3">User</th>
@@ -67,8 +67,8 @@ export default function AdminBookingsPage() {
                     </thead>
                     <tbody>
                         {bookings.map((booking) => (
-                            <tr key={booking.id} className="bg-white border-b hover:bg-gray-50">
-                                <td className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                            <tr key={booking.id} className="border-b border-border hover:bg-muted/50">
+                                <td className="px-6 py-4 font-medium text-foreground whitespace-nowrap">
                                     #{booking.id.slice(0, 8)}
                                 </td>
                                 <td className="px-6 py-4">
@@ -83,7 +83,7 @@ export default function AdminBookingsPage() {
                                 <td className="px-6 py-4">
                                     <div className="flex flex-col text-xs">
                                         <span>{format(new Date(booking.start_date), 'MMM dd, yyyy')}</span>
-                                        <span className="text-gray-500">to</span>
+                                        <span className="text-muted-foreground">to</span>
                                         <span>{format(new Date(booking.end_date), 'MMM dd, yyyy')}</span>
                                     </div>
                                 </td>
@@ -110,7 +110,7 @@ export default function AdminBookingsPage() {
                                             <DropdownMenuItem onClick={() => handleStatusChange(booking.id, 'completed')}>
                                                 Mark as Completed
                                             </DropdownMenuItem>
-                                            <DropdownMenuItem onClick={() => handleStatusChange(booking.id, 'cancelled')} className="text-red-600">
+                                            <DropdownMenuItem onClick={() => handleStatusChange(booking.id, 'cancelled')} className="text-destructive">
                                                 Cancel Booking
                                             </DropdownMenuItem>
                                         </DropdownMenuContent>

@@ -82,7 +82,7 @@ export function VehicleForm({ initialData, onSuccess, onCancel }: VehicleFormPro
     };
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 max-w-2xl bg-white p-6 rounded-lg shadow-sm">
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 max-w-2xl bg-card p-6 rounded-lg shadow-sm border border-border">
             <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
                     <Label htmlFor="make">Make</Label>
@@ -136,16 +136,16 @@ export function VehicleForm({ initialData, onSuccess, onCancel }: VehicleFormPro
             <div className="space-y-2">
                 <Label>Vehicle Image</Label>
                 <div className="flex items-center gap-4">
-                    <div className="relative w-32 h-24 border rounded bg-gray-50 flex items-center justify-center overflow-hidden">
+                    <div className="relative w-32 h-24 border border-border rounded bg-muted flex items-center justify-center overflow-hidden">
                         {imageUrl ? (
                             <Image src={imageUrl} alt="Vehicle" fill className="object-cover" />
                         ) : (
-                            <Car className="text-gray-300 w-8 h-8" />
+                            <Car className="text-muted-foreground w-8 h-8" />
                         )}
                     </div>
                     <div className="flex-1">
                         <Input type="file" accept="image/*" onChange={handleImageUpload} disabled={uploading} />
-                        {uploading && <p className="text-xs text-blue-600 mt-1">Uploading...</p>}
+                        {uploading && <p className="text-xs text-primary mt-1">Uploading...</p>}
                     </div>
                 </div>
             </div>
