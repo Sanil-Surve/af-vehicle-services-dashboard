@@ -50,9 +50,9 @@ export default function SignUpForm() {
     if (success) {
         return (
             <div className="text-center space-y-4">
-                <div className="bg-green-50 p-4 rounded-md dark:bg-green-900/20">
-                    <h3 className="text-green-800 font-medium dark:text-green-400">Registration Successful!</h3>
-                    <p className="text-green-700 mt-2 text-sm dark:text-green-300">
+                <div className="bg-green-500/20 p-4 rounded-md">
+                    <h3 className="text-green-400 font-medium">Registration Successful!</h3>
+                    <p className="text-green-300 mt-2 text-sm">
                         Please check your email ({email}) for a confirmation link to activate your account.
                     </p>
                 </div>
