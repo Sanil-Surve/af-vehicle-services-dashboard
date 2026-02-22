@@ -7,11 +7,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { notFound, useParams } from 'next/navigation';
 import BookingModal from '@/components/booking/BookingModal';
+import TermsConditionsModal from '@/components/privacypolicy/termsconditions';
 
 export default function VehicleDetailsPage() {
     const params = useParams();
     const { type, slug } = params as { type: string; slug: string };
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isTermsOpen, setIsTermsOpen] = useState(false);
     const [vehicle, setVehicle] = useState<Vehicle | null>(null);
     const [loading, setLoading] = useState(true);
 
@@ -118,7 +120,7 @@ export default function VehicleDetailsPage() {
 
                         <div className="mt-10">
                             <button
-                                onClick={() => setIsModalOpen(true)}
+                                onClick={() => setIsTermsOpen(true)}
                                 disabled={!vehicle.is_available}
                                 className="w-full rounded-lg bg-primary px-8 py-3 font-semibold text-primary-foreground hover:bg-primary/90 disabled:opacity-50 sm:w-auto"
                             >
@@ -133,6 +135,15 @@ export default function VehicleDetailsPage() {
                 isOpen={isModalOpen}
                 onClose={() => setIsModalOpen(false)}
                 vehicle={vehicle}
+            />
+
+            <TermsConditionsModal
+                isOpen={isTermsOpen}
+                onClose={() => setIsTermsOpen(false)}
+                onAccept={() => {
+                    setIsTermsOpen(false);
+                    setIsModalOpen(true);
+                }}
             />
         </>
     );

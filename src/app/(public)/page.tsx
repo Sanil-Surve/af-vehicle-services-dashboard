@@ -12,6 +12,7 @@ import Link from "next/link"
 import { vehicleService } from "@/services/vehicle.service"
 import { Vehicle } from "@/types/vehicle"
 import BookingModal from "@/components/booking/BookingModal"
+import TermsConditionsModal from '@/components/privacypolicy/termsconditions'
 import { useUser } from "@/hooks/useUser"
 import { useRouter } from "next/navigation"
 import TestimonialsCarousel from "@/components/testimonials/TestimonialsMarquee"
@@ -21,6 +22,7 @@ export default function LandingPage() {
   const [loading, setLoading] = React.useState(true)
   const [selectedVehicle, setSelectedVehicle] = React.useState<Vehicle | null>(null)
   const [isBookingModalOpen, setIsBookingModalOpen] = React.useState(false)
+  const [isTermsOpen, setIsTermsOpen] = React.useState(false)
   const [showAuthAlert, setShowAuthAlert] = React.useState(false)
   const { user } = useUser()
   const router = useRouter()
@@ -47,8 +49,9 @@ export default function LandingPage() {
       return
     }
 
+    // Set selected vehicle and show Terms & Conditions first
     setSelectedVehicle(vehicle)
-    setIsBookingModalOpen(true)
+    setIsTermsOpen(true)
   }
 
   const handleCloseModal = () => {
@@ -263,6 +266,16 @@ export default function LandingPage() {
           vehicle={selectedVehicle}
         />
       )}
+
+      {/* Terms & Conditions Modal (shown before booking) */}
+      <TermsConditionsModal
+        isOpen={isTermsOpen}
+        onClose={() => setIsTermsOpen(false)}
+        onAccept={() => {
+          setIsTermsOpen(false)
+          setIsBookingModalOpen(true)
+        }}
+      />
 
       {/* Authentication Alert */}
       {showAuthAlert && (
