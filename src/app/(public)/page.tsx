@@ -96,7 +96,7 @@ export default function LandingPage() {
               <span className="text-primary italic">Driving</span>
             </h1>
             <p className="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
-              Choose from our curated fleet of luxury and performance vehicles for your next journey. Unmatched comfort, style, and service.
+              We provide bikes and scooters on Rent hourly, Daily, weekly and monthly basis, also available for delivery related works
             </p>
           </motion.div>
 
@@ -213,13 +213,13 @@ export default function LandingPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <FeatureCard
               icon={<Shield className="h-10 w-10 text-primary" />}
-              title="Fully Insured"
-              description="Drive with peace of mind knowing all our vehicles come with comprehensive insurance coverage."
+              title="ON ROAD ASSISTANCE"
+              description="on road assistance over a select area network including maintenance work and traffic support"
             />
             <FeatureCard
               icon={<Clock className="h-10 w-10 text-primary" />}
-              title="24/7 Support"
-              description="Our dedicated support team is available around the clock to assist you with any inquiries."
+              title="DOORSTEP DELIVERY"
+              description="doorstep delivery in selected areas at nominal delivery charges"
             />
             <FeatureCard
               icon={<Award className="h-10 w-10 text-primary" />}

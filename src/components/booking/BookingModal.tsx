@@ -158,7 +158,7 @@ export default function BookingModal({ isOpen, onClose, vehicle }: BookingModalP
                             </svg>
                         </div>
                         <h3 className="text-lg font-semibold text-green-400 mb-2">Booking Confirmed!</h3>
-                        <p className="text-sm text-muted-foreground">Your booking has been created successfully.</p>
+                        <p className="text-sm text-muted-foreground">Your details have been submitted to review we will confirm the details shared by you. Our customer executive will call you for payment and booking confirmation within 5 mins. </p>
                     </div>
                 ) : (
                     <>

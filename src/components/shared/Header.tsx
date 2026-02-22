@@ -24,7 +24,10 @@ export function Header() {
                                 <AvatarImage src="/logo3.jpeg" alt="AfLogo" />
                             </Avatar>
                         </div>
-                        <span className="text-xl font-bold tracking-tight">AF Vehicle Services</span>
+                        <div className="flex flex-col">
+                            <span className="text-lg font-bold tracking-tight">AF Vehicle Services</span>
+                            <span className="text-sm font-light text-muted-foreground">We provide best quality bikes and scooters on rent</span>
+                        </div>
                     </Link>
                 </div>
 
