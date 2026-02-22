@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { createClient } from '@/lib/supabase/client';
 import { AdminSidebar } from '@/components/admin/AdminSidebar';
+import { Menu } from 'lucide-react';
 
 export default function AdminLayout({
     children,
@@ -13,6 +14,7 @@ export default function AdminLayout({
     const router = useRouter();
     const supabase = createClient();
     const [isLoading, setIsLoading] = useState(true);
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
     useEffect(() => {
         const checkAdmin = async () => {
@@ -50,12 +52,29 @@ export default function AdminLayout({
 
     return (
         <div className="flex min-h-screen bg-background">
-            <AdminSidebar />
-            <main className="flex-1 overflow-auto">
-                <div className="p-8">
-                    {children}
-                </div>
-            </main>
+            <AdminSidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
+
+            <div className="flex-1 flex flex-col overflow-auto">
+                {/* Mobile header */}
+                <header className="md:hidden flex items-center justify-between px-4 py-3 border-b bg-background/80">
+                    <div className="flex items-center gap-3">
+                        <button
+                            onClick={() => setIsSidebarOpen(true)}
+                            className="p-2 rounded-md hover:bg-gray-100/5"
+                            aria-label="Open menu"
+                        >
+                            <Menu className="w-5 h-5 text-foreground" />
+                        </button>
+                        <h2 className="text-lg font-semibold">Admin Portal</h2>
+                    </div>
+                </header>
+
+                <main className="flex-1">
+                    <div className="p-8">
+                        {children}
+                    </div>
+                </main>
+            </div>
         </div>
     );
 }

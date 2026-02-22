@@ -24,7 +24,6 @@ export function Footer() {
                             <li><Link href="#" className="hover:text-foreground">Daily Rental</Link></li>
                             <li><Link href="#" className="hover:text-foreground">Long-term Leasing</Link></li>
                             <li><Link href="#" className="hover:text-foreground">Airport Transfer</Link></li>
-                            <li><Link href="#" className="hover:text-foreground">Chauffeur Service</Link></li>
                         </ul>
                     </div>
 
@@ -34,7 +33,6 @@ export function Footer() {
                             <li><Link href="#" className="hover:text-foreground">About Us</Link></li>
                             <li><Link href="#" className="hover:text-foreground">Careers</Link></li>
                             <li><Link href="#" className="hover:text-foreground">Locations</Link></li>
-                            <li><Link href="#" className="hover:text-foreground">Blog</Link></li>
                         </ul>
                     </div>
 

@@ -223,8 +223,15 @@ export default function LandingPage() {
             />
             <FeatureCard
               icon={<Award className="h-10 w-10 text-primary" />}
-              title="Best Rates Guaranteed"
-              description="We adhere to a strict price match policy to ensure you get the best deal on the market."
+              title="Ride For Every Need"
+              description="•⁠  ⁠Work related one time use
+•⁠  ⁠For local travel
+•⁠  ⁠For outstation travel
+•⁠  ⁠Weekend plans and trips
+•⁠  ⁠Short term usage for a few days
+•⁠  ⁠Test rides
+•⁠  ⁠For long trips anywhere in India 
+•⁠  ⁠For learning"
             />
           </div>
         </div>
