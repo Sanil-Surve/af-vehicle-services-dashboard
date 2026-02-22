@@ -89,7 +89,7 @@ export default function LandingPage() {
             transition={{ duration: 0.6 }}
           >
             <Badge variant="secondary" className="mb-4 px-4 py-1 text-sm md:text-base border-white/20 bg-white/10 backdrop-blur-md text-white">
-              Premium Vehicle Services
+              Two Wheeler Rental Agency
             </Badge>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6">
               Experience the Art of <br />
