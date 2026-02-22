@@ -14,7 +14,7 @@ export function Footer() {
                             <span className="text-xl font-bold tracking-tight">AF Rentals</span>
                         </Link>
                         <p className="text-sm text-muted-foreground">
-                            Premium vehicle booking services for every occasion. Experience luxury and comfort with our curated fleet.
+                            We provide bikes and scooters on Rent hourly, Daily, weekly and monthly basis, also available for delivery related works
                         </p>
                     </div>
 
