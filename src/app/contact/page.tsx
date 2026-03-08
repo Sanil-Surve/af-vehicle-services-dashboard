@@ -156,8 +156,8 @@ export default function ContactPage() {
                                             >
                                                 <Star
                                                     className={`h-8 w-8 transition-colors ${star <= (hoverRating || rating)
-                                                            ? 'fill-yellow-400 text-yellow-400'
-                                                            : 'fill-muted text-muted-foreground/30'
+                                                        ? 'fill-yellow-400 text-yellow-400'
+                                                        : 'fill-muted text-muted-foreground/30'
                                                         }`}
                                                 />
                                             </button>
@@ -244,7 +244,7 @@ export default function ContactPage() {
                                         </div>
                                         <div>
                                             <p className="text-sm text-primary-foreground/70">Email</p>
-                                            <p className="font-medium text-primary-foreground">contact@afvehicles.com</p>
+                                            <p className="font-medium text-primary-foreground"> afbikerentals@gmail.com</p>
                                         </div>
                                     </div>
 
