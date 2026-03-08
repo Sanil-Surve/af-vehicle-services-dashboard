@@ -8,7 +8,7 @@ import { Footer } from "@/components/shared/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Vehicle Booking Platform",
+  title: "AF Vehicle Services",
   description: "Rent Cars, Bikes, and Scooters easily.",
 };
 
