@@ -20,7 +20,8 @@ export default function VehicleDetailsPage() {
     useEffect(() => {
         const loadVehicle = async () => {
             try {
-                const data = await vehicleService.getVehicleBySlug(slug);
+                const decodedSlug = decodeURIComponent(slug);
+                const data = await vehicleService.getVehicleBySlug(decodedSlug);
                 if (data) {
                     setVehicle(data);
                 }
