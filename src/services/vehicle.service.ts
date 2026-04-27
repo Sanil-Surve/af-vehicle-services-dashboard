@@ -25,7 +25,7 @@ export const vehicleService = {
       .from('vehicles')
       .select('*')
       .eq('id', id)
-      .single();
+      .maybeSingle();
     
     if (error) return null;
     return data as Vehicle;
@@ -37,7 +37,7 @@ export const vehicleService = {
       .from('vehicles')
       .select('*')
       .eq('slug', slug)
-      .single();
+      .maybeSingle();
     
     if (error) return null;
     return data as Vehicle;
